@@ -2,15 +2,15 @@ from attr import define, field, validators
 
 @define()
 class DailyPriceData:
-    current_price = field(
+    current_price: float = field(
         default=None,
         validator=validators.optional(validators.instance_of(float)),
     )
-    open_price: field(
+    open_price: float = field(
         default=None,
         validator=validators.optional(validators.instance_of(float)),
     )
-    previous_close_price: field(
+    previous_close_price: float = field(
         default=None,
         validator=validators.optional(validators.instance_of(float)),
     )
@@ -18,7 +18,7 @@ class DailyPriceData:
 
 @define()
 class News:
-    text = field(
+    text: str = field(
         default=None,
         validator=validators.optional(validators.instance_of(str)),
     )
