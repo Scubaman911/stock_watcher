@@ -1,6 +1,7 @@
 from typing import Dict, List, Optional
 from pprint import pprint
 from stock_builder import StockBuilder, Stock, yf
+from datetime import datetime
 # currentPrice
 # open
 # previousClose
@@ -12,23 +13,23 @@ def main():
     for stock in ticker_list:
         built = StockBuilder(stock)
         built.collate_daily_price_data()
+        built.collate_news_data()
         stocks.append(built.stock)
 
     for built_stock in stocks:
+        print(f"*** Info for {built_stock.ticker}! ***")
+        print("Daily Price Data:")
         pprint(built_stock.daily_price_data)
-
-def news():
-    rio = yf.Ticker(ticker_list[0])
-    for story in rio.news:
-        pprint(story.get("title"))
-
-    print("")
-
-    rivian = yf.Ticker("RIVN")
-    for story in rivian.news:
-        pprint(story.get("title"))
-
-    
+        print("-----------------")
+        print("Stories:")
+        for story in built_stock.news:
+            print(story.title)
+            print(story.publisher)
+            print(datetime.fromtimestamp(story.published_timestamp))
+            print(story.link)
+            print("-----------------")
+        print("")
+        print("")
 
 if __name__ == "__main__":
-    news()
+    main()

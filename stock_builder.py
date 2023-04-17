@@ -9,9 +9,9 @@ Stocks
 """
 import yfinance as yf
 from abc import ABC, abstractmethod
-from typing import Any
+from typing import Any, List, Optional
 
-from stock_data import StockData, DailyPriceData, News
+from stock_data import StockData, DailyPriceData, NewsStory
 
 class StockBuilder():
     """
@@ -42,6 +42,19 @@ class StockBuilder():
 
     def collate_news_data(self):
         news = self.ticker.news
+
+        if type(news) == list:
+            stories = []
+            story: dict
+            for story in news:
+                element = NewsStory(
+                    title=story.get("title"),
+                    published_timestamp=story.get("providerPublishTime"),
+                    publisher=story.get("publisher"),
+                    link=story.get("link")
+                )
+                stories.append(element)
+            self._stock.news = stories
         
 
 
@@ -51,7 +64,7 @@ class Stock():
         self._data = StockData()
 
     @property
-    def daily_price_data(self):
+    def daily_price_data(self) -> DailyPriceData:
         return self._data.daily_price_data
     
     @daily_price_data.setter
@@ -59,11 +72,11 @@ class Stock():
         self._data.daily_price_data = daily_price_data
 
     @property
-    def news(self):
-        return self._data.news
+    def news(self) -> List[NewsStory]:
+        return self._data.news_stories
     
     @news.setter
-    def news(self, news: News):
-        self._data.news = news
+    def news(self, news: List[NewsStory]):
+        self._data.news_stories = news
         
     

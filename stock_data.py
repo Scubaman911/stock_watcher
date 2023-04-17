@@ -1,4 +1,6 @@
+from typing import List
 from attr import define, field, validators
+
 
 @define()
 class DailyPriceData:
@@ -17,20 +19,18 @@ class DailyPriceData:
 
 
 @define()
-class News:
-    text: str = field(
-        default=None,
-        validator=validators.optional(validators.instance_of(str)),
-    )
-
+class NewsStory:
+    title: str = field(validator=validators.instance_of(str)) # title
+    published_timestamp: int = field(validator=validators.instance_of(int)) # providerPublishTime
+    publisher: str = field(validator=validators.instance_of(str)) # publisher
+    link: str = field(validator=validators.instance_of(str)) # link
 
 @define()
 class StockData:
     daily_price_data = field(
         default=DailyPriceData(),
-        validator=validators.optional(validators.instance_of(DailyPriceData))
+        validator=validators.optional(validators.instance_of(DailyPriceData)),
     )
-    news = field(
-        default=News(),
-        validator=validators.optional(validators.instance_of(News))
+    news_stories: List[NewsStory] = field(
+        default=[], validator=validators.instance_of(list)
     )
