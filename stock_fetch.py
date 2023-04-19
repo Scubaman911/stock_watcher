@@ -1,12 +1,10 @@
-from typing import Dict, List, Optional
+from typing import List
 from pprint import pprint
-from stock_builder import StockBuilder, Stock, yf
+from stock_builder import StockBuilder, Stock
+from stock_tickers import ticker_list
+from stock_utils import percentage_change
 from datetime import datetime
-# currentPrice
-# open
-# previousClose
-
-ticker_list = ["RIO.L", "RIVN", "^FTSE"]
+import logging
 
 def main():
     stocks: List[Stock] = []
@@ -17,19 +15,24 @@ def main():
         stocks.append(built.stock)
 
     for built_stock in stocks:
-        print(f"*** Info for {built_stock.ticker}! ***")
-        print("Daily Price Data:")
+        logging.info(f"*** Info for {built_stock.ticker}! ***")
+        logging.info("Daily Price Data:")
         pprint(built_stock.daily_price_data)
-        print("-----------------")
-        print("Stories:")
+        pcnt = percentage_change(built_stock.daily_price_data.current_price, built_stock.daily_price_data.open_price)
+        logging.info(f"PERCENTAGE CHANGE: {pcnt:.2f}%")
+        logging.info("-----------------")
+        logging.info("Stories:")
         for story in built_stock.news:
-            print(story.title)
-            print(story.publisher)
-            print(datetime.fromtimestamp(story.published_timestamp))
-            print(story.link)
-            print("-----------------")
-        print("")
-        print("")
+           logging.info(story.title)
+           logging.info(story.publisher)
+           logging.info(datetime.fromtimestamp(story.published_timestamp))
+           logging.info(story.link)
+           logging.info("-----------------")
+        logging.info("")
+        logging.info("")
 
 if __name__ == "__main__":
+    logging.basicConfig(
+        level=logging.INFO, 
+        format= '[%(asctime)s] %(levelname)s - %(message)s')
     main()
