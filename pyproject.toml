@@ -8,10 +8,8 @@ packages = [{include = "stock_watcher"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
-pandas = {path = "../pandas-2.1.0.dev0+516.g949c350853-cp311-cp311-win_amd64.whl"}
-yfinance = "^0.2.17"
 attrs = "^22.2.0"
-
+yfinance = "^0.2.18"
 
 [build-system]
 requires = ["poetry-core"]
