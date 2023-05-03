@@ -24,8 +24,11 @@ def call_on_schedule(func: callable):
         timer -= 1
         if timer == 0:
             logging.info(f"{func.__name__} is being called...")
+            start = time.perf_counter()
             func()
             logging.info(f"{func.__name__} has finished, resetting timer...")
+            stop = time.perf_counter()
+            logging.info(f"Processing took {stop - start:2f} seconds to complete.")
             timer = timer_secs
       
 def on_schedule(func):
