@@ -5,6 +5,7 @@ import os
 import time
 import functools
 import logging
+from config import stock_config
 
 def percentage_change(current_value: float, previous_value: float):
     x = (current_value - previous_value) / previous_value
@@ -13,8 +14,8 @@ def percentage_change(current_value: float, previous_value: float):
 
 
 def call_on_schedule(func: callable):
-    secs = int(os.getenv("SCHEDULE_SECONDS", 60))
-    minutes = int(os.getenv("SCHEDULE_MINUTES", 0))
+    secs = stock_config["scheduler"]["schedule_seconds"]
+    minutes = stock_config["scheduler"]["schedule_minutes"]
 
     timer_secs = secs + (minutes * 60)
     timer = timer_secs
