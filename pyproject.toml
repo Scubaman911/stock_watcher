@@ -10,6 +10,9 @@ packages = [{include = "stock_watcher"}]
 python = "^3.11"
 attrs = "^22.2.0"
 yfinance = "^0.2.18"
+confluent-kafka = "^2.1.1"
+fastavro = "^1.7.4"
+pyyaml = "^6.0"
 
 [build-system]
 requires = ["poetry-core"]
