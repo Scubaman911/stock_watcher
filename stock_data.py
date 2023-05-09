@@ -4,6 +4,10 @@ from attr import define, field, validators
 
 @define()
 class DailyPriceData:
+    currency: str = field(
+        default=None,
+        validator=validators.optional(validators.instance_of(str)),
+    )
     current_price: float = field(
         default=None,
         validator=validators.optional(validators.instance_of(float)),
@@ -17,7 +21,6 @@ class DailyPriceData:
         validator=validators.optional(validators.instance_of(float)),
     )
 
-
 @define()
 class NewsStory:
     title: str = field(validator=validators.instance_of(str)) # title
@@ -27,6 +30,14 @@ class NewsStory:
 
 @define()
 class StockData:
+    symbol = field(
+        default="",
+        validator=validators.instance_of(str),
+    )
+    long_name = field(
+        default="",
+        validator=validators.optional(validators.instance_of(str))
+    )
     daily_price_data = field(
         default=DailyPriceData(),
         validator=validators.optional(validators.instance_of(DailyPriceData)),

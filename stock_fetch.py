@@ -11,10 +11,8 @@ from config import stock_config
 
 @on_schedule
 def publish_stocks():
-    stocks: List[Stock] = []
     with ThreadPoolExecutor(max_workers=16) as executor:
         for result in executor.map(build_stock, stock_config["tickers"]["list"]):
-            stocks.append(result)
             produce_stock_to_stream(result)
 
 
@@ -22,6 +20,7 @@ def build_stock(stock):
     built = StockBuilder(stock)
     built.collate_daily_price_data()
     built.collate_news_data()
+    built.collate_ticker_identifiers()
     return built.stock
 
 
@@ -39,7 +38,7 @@ def produce_stock_to_stream(stock: Stock):
 
     producer.produce(
         topic=stock_config["topics"]["stock_producer_topic"],
-        value=str(stock.daily_price_data.current_price),
+        value=stock.to_json(),
         key=stock.ticker,
         on_delivery=on_delivery,
     )

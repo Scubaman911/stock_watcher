@@ -10,6 +10,8 @@ Stocks
 import yfinance as yf
 from abc import ABC, abstractmethod
 from typing import Any, List, Optional
+import json
+from attr import asdict
 
 from stock_data import StockData, DailyPriceData, NewsStory
 
@@ -24,6 +26,7 @@ class StockBuilder():
 
     def reset(self) -> None:
         self._stock = Stock(self.ticker_str)
+        self.ticker.info # pull information
 
     @property
     def stock(self):
@@ -34,6 +37,7 @@ class StockBuilder():
     def collate_daily_price_data(self) -> None: 
         info = self.ticker.info
         daily_prices = DailyPriceData(
+            currency=info.get("currency"),
             current_price=info.get("currentPrice"),
             open_price=info.get("open"),
             previous_close_price=info.get("previousClose"),
@@ -55,8 +59,11 @@ class StockBuilder():
                 )
                 stories.append(element)
             self._stock.news = stories
-        
 
+    def collate_ticker_identifiers(self):
+        info = self.ticker.info
+        self._stock.symbol = info.get("underlyingSymbol")
+        self._stock.long_name = info.get("longName")
 
 class Stock():
     def __init__(self, ticker: str) -> None:
@@ -79,4 +86,21 @@ class Stock():
     def news(self, news: List[NewsStory]):
         self._data.news_stories = news
         
+    @property
+    def symbol(self) -> str:
+        return self._data.symbol
     
+    @symbol.setter
+    def symbol(self, symbol: str):
+        self._data.symbol = symbol
+
+    @property
+    def long_name(self) -> str:
+        return self._data.long_name
+    
+    @long_name.setter
+    def long_name(self, long_name: str):
+        self._data.long_name = long_name
+
+    def to_json(self):
+        return json.dumps(asdict(self._data))
