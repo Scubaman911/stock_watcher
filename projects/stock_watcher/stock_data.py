@@ -8,6 +8,14 @@ class DailyPriceData:
         default=None,
         validator=validators.optional(validators.instance_of(str)),
     )
+    daily_high: float = field(
+        default=None,
+        validator=validators.optional(validators.instance_of(float))
+    )
+    daily_low: float = field(
+        default=None,
+        validator=validators.optional(validators.instance_of(float))
+    )
     current_price: float = field(
         default=None,
         validator=validators.optional(validators.instance_of(float)),

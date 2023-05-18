@@ -1,0 +1,62 @@
+{
+    "symbol": "RIO.L",
+    "long_name": "Rio Tinto Group",
+    "daily_price_data": {
+        "currency": "GBp",
+        "daily_high": 4973.5,
+        "daily_low": 4819.33,
+        "current_price": 4882.5,
+        "open_price": 4934.0,
+        "previous_close_price": 4984.5
+    },
+    "news_stories": [
+        {
+            "title": "Twitter's verified users get early access to encrypted messaging",
+            "published_timestamp": 1683830984,
+            "publisher": "Reuters",
+            "link": "https://finance.yahoo.com/news/twitters-verified-users-early-access-184944863.html"
+        },
+        {
+            "title": "Trump\u2019s Indifference on Ukraine War Sets Stark Choice for U.S. Voters in 2024",
+            "published_timestamp": 1683830820,
+            "publisher": "The Wall Street Journal",
+            "link": "https://finance.yahoo.com/m/904fd639-d536-330c-b643-7c3f450ba9ab/trump%E2%80%99s-indifference-on.html"
+        },
+        {
+            "title": "The Coretec Group to Host a Shareholder Call on May 18 to Provide an Update on its Endurion Battery Development Program for Electric Vehicles",
+            "published_timestamp": 1683830820,
+            "publisher": "GlobeNewswire",
+            "link": "https://finance.yahoo.com/news/coretec-group-host-shareholder-call-184700886.html"
+        },
+        {
+            "title": "Trutankless, Inc. Announces Further Product Development Updates",
+            "published_timestamp": 1683830820,
+            "publisher": "PR Newswire",
+            "link": "https://finance.yahoo.com/news/trutankless-inc-announces-further-product-184700216.html"
+        },
+        {
+            "title": "Martin Marietta Declares Quarterly Cash Dividend",
+            "published_timestamp": 1683830760,
+            "publisher": "GlobeNewswire",
+            "link": "https://finance.yahoo.com/news/martin-marietta-declares-quarterly-cash-184600015.html"
+        },
+        {
+            "title": "Enforcement Notification - Tax evasion - Saskatchewan Agri-Scientist fined over $86,000 for tax evasion",
+            "published_timestamp": 1683830760,
+            "publisher": "CNW Group",
+            "link": "https://finance.yahoo.com/news/enforcement-notification-tax-evasion-saskatchewan-184600205.html"
+        },
+        {
+            "title": "Global Network Access Control Markets, 2023-2026 with 2022 as the Base Year - Opportunities in IT, OT, and IoMT Network Convergence, NAC-as-a-Service & Promoting NAC to SMBs",
+            "published_timestamp": 1683830700,
+            "publisher": "PR Newswire",
+            "link": "https://finance.yahoo.com/news/global-network-access-control-markets-184500693.html"
+        },
+        {
+            "title": "Puttshack Announces Grand Opening in the Steel City's Strip District",
+            "published_timestamp": 1683830700,
+            "publisher": "PR Newswire",
+            "link": "https://finance.yahoo.com/news/puttshack-announces-grand-opening-steel-184500517.html"
+        }
+    ]
+}

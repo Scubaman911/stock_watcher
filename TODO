@@ -1,0 +1,12 @@
+# STOCK_WATCHER
+- Add daily high/low
+- Use producer to send data with schema to Kafka.
+
+# KAFKA
+- Set up a Kafka schema registry for the data format.
+
+# KAFKA DB
+- Store latest and previous data to allow comparison.
+
+# EMAIL SERVICE
+- Create a consumer service to pull from the Kafka Topic.

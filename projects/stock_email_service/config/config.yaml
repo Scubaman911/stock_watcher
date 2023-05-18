@@ -1,0 +1,12 @@
+scheduler:
+    schedule_seconds: 30
+    schedule_minutes: 0
+
+kafka:
+    bootstrap.servers: "broker:29092"
+
+topics:
+    stock_producer_topic: "stock_data_stream"
+
+tickers:
+    list: ["CWR.L", "NET", "FSLY", "ITM.L", "RIO.L", "RIVN", "RR.L"]

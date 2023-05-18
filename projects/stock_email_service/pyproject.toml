@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "stock-email-service"
+version = "0.1.0"
+description = "Consume stock stream information and "
+authors = ["cs"]
+readme = "README.md"
+packages = [{include = "stock_email_service"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+confluent-kafka = "^2.1.1"
+fastavro = "^1.7.4"
+pyyaml = "^6.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

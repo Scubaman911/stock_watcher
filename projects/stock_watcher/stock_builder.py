@@ -38,6 +38,8 @@ class StockBuilder():
         info = self.ticker.info
         daily_prices = DailyPriceData(
             currency=info.get("currency"),
+            daily_high=info.get("dayHigh"),
+            daily_low=info.get("dayLow"),
             current_price=info.get("currentPrice"),
             open_price=info.get("open"),
             previous_close_price=info.get("previousClose"),

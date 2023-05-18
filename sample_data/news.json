@@ -1,0 +1,31 @@
+{
+    "link": "https: //finance.yahoo.com/m/4b6a2dbb-a084-3dce-9d9b-63df59ce0ccc/why-rivian-and-nikola-popped%2C.html",
+    "providerPublishTime": 1681756874,
+    "publisher": "Motley Fool",
+    "relatedTickers": [
+        "NKLA",
+        "FSR",
+        "RIVN",
+        "TSLA",
+        "GM"
+    ],
+    "thumbnail": {
+        "resolutions": [
+            {
+                "height": 1290,
+                "tag": "original",
+                "url": "https: //s.yimg.com/uu/api/res/1.2/koALfnXLuH5IRTkgyWDHqw--~B/aD0xMjkwO3c9MjMyMjthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/motleyfool.com/a0ac9958b8c3f98d3f306d75200a7433",
+                "width": 2322
+            },
+            {
+                "height": 140,
+                "tag": "140x140",
+                "url": "https: //s.yimg.com/uu/api/res/1.2/7r9p2pQfzCip77sen8OqjA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/a0ac9958b8c3f98d3f306d75200a7433",
+                "width": 140
+            }
+        ]
+    },
+    "title": "Why Rivian and Nikola Popped, but Fisker Dropped",
+    "type": "STORY",
+    "uuid": "4b6a2dbb-a084-3dce-9d9b-63df59ce0ccc"
+}
