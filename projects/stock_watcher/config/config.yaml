@@ -3,7 +3,7 @@ scheduler:
     schedule_minutes: 0
 
 kafka:
-    bootstrap.servers: "localhost:9092"
+    bootstrap.servers: "broker:29092"
 
 topics:
     stock_producer_topic: "stock_data_stream"

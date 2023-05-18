@@ -10,7 +10,7 @@ services:
     ports:
       - "8080:8080"
     build:
-      context: stock_watcher
+      context: ./projects/stock_watcher
       dockerfile: stock_watcher.dockerfile
     environment:
       - SCHEDULE_SECONDS=30

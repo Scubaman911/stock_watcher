@@ -27,4 +27,4 @@ COPY . /app
 # debug 
 # CMD [ "tail", "-F", "anything"]
 
-CMD ["poetry", "run", "python", "stock_fetch.py"]
+CMD ["poetry", "run", "python", "main.py"]

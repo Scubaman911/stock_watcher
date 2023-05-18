@@ -31,7 +31,8 @@ def call_on_schedule(func: callable):
             stop = time.perf_counter()
             logging.info(f"Processing took {stop - start:2f} seconds to complete.")
             timer = timer_secs
-      
+
+    
 def on_schedule(func):
     @functools.wraps(func)
     def wrapper():
