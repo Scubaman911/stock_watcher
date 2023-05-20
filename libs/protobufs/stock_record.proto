@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+message StringOrInt32 {
+    oneof str_or_int {
+        string str = 1;
+        int32 int = 2;
+    }
+}
+
+message DailyPriceData {
+    string currency = 1;
+    int32 daily_high = 2;
+    int32 daily_low = 3;
+    int32 current_price = 4;
+    int32 open_price = 5;
+    int32 previous_close_price = 6;
+}
+
+message NewsStory {    
+    map<string, StringOrInt32> story = 1;
+}
+
+message StockRecord {
+    string symbol = 1;
+    string long_name = 2;
+    DailyPriceData daily_price_data = 3;
+    repeated NewsStory news_stories = 4;
+
+}
